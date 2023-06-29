@@ -1,9 +1,13 @@
-import Image from "next/image";
+"use client";
+
+import Card from "./components/weather-card";
 
 export default function Home() {
   return (
     <>
-      <h1>Hello World</h1>
+      <div className="flex flex-col items-center mt-20">
+        <Card />
+      </div>
     </>
   );
 }
