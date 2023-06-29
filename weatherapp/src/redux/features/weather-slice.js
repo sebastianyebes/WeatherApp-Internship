@@ -24,10 +24,16 @@ const weatherSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(fetchWeather.pending, (state, action) => {
+      state.loading = true;
+    });
     builder.addCase(fetchWeather.fulfilled, (state, action) => {
       state.weather = action.payload;
       state.loading = false;
-      state.error = null;
+    });
+    builder.addCase(fetchWeather.rejected, (state, action) => {
+      state.error = action.payload;
+      state.loading = false;
     });
   },
 });
